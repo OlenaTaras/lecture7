@@ -1,0 +1,32 @@
+<div class="form-group">
+  <input [ngStyle]="{'border-color': validateInputData()}" type="text" [(ngModel)]="usersText">
+  <span *ngIf="usersText; else noName">User name you entered is {{usersText}}</span>
+  <ng-template #noName>
+    Please, enter user name
+  </ng-template>
+</div>
+
+<div class="form-group">
+   <button class="btn btn-default"
+          [ngClass]="{'btn-danger': !usersText}"
+          (click)="resetUserName()">Reset name
+  </button>
+</div>
+
+<div class="container">
+  <div *ngFor="let user of usersData">{{user.name}}</div>
+  <table>
+    <tr *ngFor="let user of usersData">
+      <td>{{user.name}}</td>
+      <td>{{user.age}}</td>
+    </tr>
+  </table>
+</div>
+
+<button (click)="onButtonClick()">Display Detail</button>
+<div *ngIf="showDetails">
+  Some details
+</div>
+<div *ngFor="let number of numbers">
+  <span [class.bg-blue]="counter > 5">{{number}}</span>
+</div>
